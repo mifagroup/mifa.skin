@@ -5,3 +5,6 @@
 .container {
   @apply mx-auto;
 }
+
+.best-projects-slider .swiper-button-prev {
+}
