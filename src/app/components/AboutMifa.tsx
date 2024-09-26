@@ -6,10 +6,10 @@ import React from "react";
 const AboutMifa = () => {
   return (
     <div className="bg-about-mifa 2xl:bg-cover bg-bottom bg-no-repeat h-[950px] flex justify-between items-center relative">
-      <div className="h-[1089px] w-full absolute top-0 z-30 bg-about-linear-gradient"></div>
+      <div className="h-[950px] w-full absolute top-0 z-30 bg-about-linear-gradient"></div>
       <div className="container">
         <div className="flex justify-between">
-          <div className="flex flex-col gap-y-8 z-50 max-w-[800px] pt-16">
+          <div className="flex flex-col gap-y-8 z-50 max-w-[750px] pt-16">
             <div className="flex items-center gap-x-3">
               <Image
                 src={"/about-us-title-line.png"}

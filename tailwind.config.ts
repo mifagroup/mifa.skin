@@ -17,6 +17,8 @@ const config: Config = {
           "linear-gradient(0deg, #141E45 10%, #141E4510 100%)",
         "about-linear-gradient":
           "linear-gradient(to bottom, #141E4501 35%,#141E45 75%)",
+        "best-project-item":
+          "linear-gradient(140deg, #ffffff30 0%, #ffffff10 100%)",
       },
     },
     screens: {
