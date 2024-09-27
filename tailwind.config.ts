@@ -8,7 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {},
+      colors: {
+        primary: "#141E45",
+        secondary: "#AB1E37",
+      },
       backgroundImage: {
         "hero-background-image": "url('/heroCloud.png')",
         noise: "url('/noise.png')",
@@ -19,6 +22,11 @@ const config: Config = {
           "linear-gradient(to bottom, #141E4501 35%,#141E45 75%)",
         "best-project-item":
           "linear-gradient(140deg, #ffffff30 0%, #ffffff10 100%)",
+        "service-item-gradient":
+          "linear-gradient(140deg, #ffffff15 0%, #ffffff02 100%)",
+        "our-beginning-cloud": "url('/ourBeginningCloud.png')",
+        "fist-inner-gradient":
+          "linear-gradient(0deg, #141E45 10%, #141E4501 100%)",
       },
     },
     screens: {

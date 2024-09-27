@@ -1,5 +1,12 @@
 import Image from "next/image";
-import { AboutMifa, BestProjects, Header, Hero } from "./components";
+import {
+  AboutMifa,
+  BestProjects,
+  Header,
+  Hero,
+  OurBeginning,
+  OurServices,
+} from "./components";
 
 const primaryDark = "#6a1b9a";
 const primaryLight = "#4a148c";
@@ -11,6 +18,8 @@ export default function Home() {
       <Hero />
       <AboutMifa />
       <BestProjects />
+      <OurServices />
+      <OurBeginning />
     </div>
   );
 }

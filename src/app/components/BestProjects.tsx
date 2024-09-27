@@ -7,11 +7,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperType } from "swiper/types";
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 // import required modules
-import { Navigation, Pagination } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 const BestProjects = () => {
   const swiperRef = useRef<SwiperType>();
 
@@ -38,13 +37,33 @@ const BestProjects = () => {
         </div>
         <div className="relative">
           <div
-            className="absolute bg-red-200 top-[140px] right-[-50px]"
+            className="absolute top-[140px] right-[-70px] cursor-pointer"
             onClick={() => swiperRef.current?.slidePrev()}
           >
-            hle
+            <Image
+              src={"/bestProjectArrow.png"}
+              alt="arrow"
+              width={50}
+              height={50}
+            />
+          </div>
+          <div
+            className="absolute top-[140px] left-[-70px] cursor-pointer"
+            onClick={() => swiperRef.current?.slideNext()}
+          >
+            <Image
+              src={"/bestProjectArrow.png"}
+              alt="arrow"
+              width={50}
+              height={50}
+              className="rotate-180"
+            />
           </div>
           <Swiper
-            pagination
+            pagination={{
+              dynamicBullets: true,
+              dynamicMainBullets: 1,
+            }}
             modules={[Pagination]}
             // breakpoints={{
             //   "640": {
