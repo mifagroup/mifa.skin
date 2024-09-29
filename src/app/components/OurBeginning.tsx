@@ -20,7 +20,7 @@ const stats = [
 
 const OurBeginning = () => {
   return (
-    <div className="pb-[300px] bg-our-beginning-cloud bg-no-repeat bg-[center_top_8rem]">
+    <div className="pb-[300px] bg-our-beginning-cloud bg-no-repeat bg-[center_top_3rem] bg-cover">
       <div className="container">
         <div className="grid grid-cols-5">
           <div className="col-span-2 relative">
@@ -100,6 +100,7 @@ const OurBeginning = () => {
                 gap: "4px",
                 fontSize: "20px",
                 width: "fit-content",
+                marginTop: "20px",
               })}
             >
               <Image src={"/councilArrow.svg"} alt="" height={20} width={53} />
