@@ -78,8 +78,8 @@ const BestProjects = () => {
             spaceBetween={30}
             className="best-projects-slider relative"
           >
-            {[...Array(9)]?.map(() => (
-              <SwiperSlide className="relative">
+            {[...Array(9)]?.map((item ,index) => (
+              <SwiperSlide key={index} className="relative">
                 <div className="flex flex-col gap-y-6">
                   <div className="relative">
                     <div className="w-full h-full absolute bg-best-project-item"></div>

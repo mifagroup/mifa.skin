@@ -65,8 +65,8 @@ const OurBeginning = () => {
               به ثـمر نشستن و ظهور پدیده کنار شما باشد.
             </Typography>
             <div className="flex items-center justify-between">
-              {stats?.map((stat) => (
-                <div className="flex flex-col gap-y-5 items-center">
+              {stats?.map((stat , index) => (
+                <div key={index} className="flex flex-col gap-y-5 items-center">
                   <Typography
                     sx={(theme) => ({
                       fontSize: "80px",

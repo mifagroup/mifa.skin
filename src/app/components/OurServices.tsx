@@ -48,8 +48,8 @@ const OurServices = () => {
         />
       </div>
       <div className="grid grid-cols-4 items-center justify-between gap-x-[40px]">
-        {data?.map((item) => (
-          <div className="border w-full bg-service-item-gradient p-[18px] h-full">
+        {data?.map((item , index) => (
+          <div key={index} className="border w-full bg-service-item-gradient p-[18px] h-full">
             <Image
               src={`/${item.id}.png`}
               alt="image"

@@ -7,7 +7,6 @@ import {
   Hero,
   OurBeginning,
   OurServices,
-  RotatingText,
 } from "./components";
 
 export default function Home() {
