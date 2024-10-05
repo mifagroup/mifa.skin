@@ -28,28 +28,36 @@ const data = [
 
 const OurServices = () => {
   return (
-    <div className="pb-[370px] container flex flex-col gap-y-[140px]">
-      <div className="flex justify-between items-center">
+    <div className="lg:pb-[370px] pb-[100px] container flex flex-col lg:gap-y-[140px] gap-y-[100px] lg:px-0 px-2">
+      <div className="flex justify-between items-center gap-x-4">
         <Typography
           sx={(theme) => ({
             color: theme.palette.common.white,
-            fontSize: "40px",
-            fontWeight: "bold",
+            fontSize: {
+              lg: "40px",
+              sm: "20px",
+            },
+            fontWeight: {
+              lg: "700",
+              md: "400",
+              xs: "300",
+            },
           })}
         >
           خدماتی که میفا ارائه میدهد
         </Typography>
+        <div className="h-[1px] flex-1 bg-white opacity-50"></div>
         <Image
-          src={"/best-projects-title-line.png"}
-          alt=""
-          width={800}
+          src={"/star.png"}
+          alt="star"
           height={39}
-          className="h-[39px] rotate-180"
+          width={39}
+          className="lg:h-[39px] lg:w-[39px] h-[25px] w-[25px]"
         />
       </div>
-      <div className="grid grid-cols-4 items-center justify-between gap-x-[40px]">
+      <div className="grid grid-cols-4 items-center justify-between lg:gap-x-[40px] md:gap-x-[20px] md:gap-y-[80px] gap-x-5 gap-y-[70px]">
         {data?.map((item , index) => (
-          <div key={index} className="border w-full bg-service-item-gradient p-[18px] h-full">
+          <div key={index} className="border w-full bg-service-item-gradient lg:col-span-1 col-span-2 p-[18px] h-full">
             <Image
               src={`/${item.id}.png`}
               alt="image"
@@ -76,7 +84,10 @@ const OurServices = () => {
             <Typography
               sx={(theme) => ({
                 color: theme.palette.common.white,
-                fontSize: "28px",
+                fontSize: {
+                  lg: "20px",
+                  sm: "13px",
+                },
                 fontWeight: "bold",
                 width: "100%",
                 borderBottom: `1px solid ${theme.palette.common.white}`,
@@ -89,7 +100,10 @@ const OurServices = () => {
             </Typography>
             <Typography
               sx={(theme) => ({
-                fontSize: "12px",
+                fontSize: {
+                  md: "12px",
+                  xs: "8px",
+                },
                 color: theme.palette.common.white,
                 fontWeight: "500",
                 textAlign: "justify",

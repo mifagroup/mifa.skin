@@ -15,21 +15,30 @@ const BestProjects = () => {
   const swiperRef = useRef<SwiperType>();
 
   return (
-    <div className="py-[370px]">
-      <div className="flex container flex-col gap-y-16">
-        <div className="flex justify-between items-center">
+    <div className="lg:pb-[370px] pb-[130px] lg:pt-0 md:pt-[200px] pt-[0px] lg:px-0 px-2">
+      <div className="flex container flex-col lg:gap-y-16 gap-y-7">
+        <div className="flex justify-between items-center gap-x-4">
           <Image
-            src={"/best-projects-title-line.png"}
-            alt=""
-            width={920}
+            src={"/star.png"}
+            alt="star"
             height={39}
-            className="h-[39px]"
+            width={39}
+            className="lg:h-[39px] lg:w-[39px] h-[25px] w-[25px]"
           />
+          <div className="h-[1px] flex-1 bg-white opacity-50"></div>
           <Typography
             sx={(theme) => ({
               color: theme.palette.common.white,
-              fontSize: "40px",
-              fontWeight: "bold",
+              fontSize: {
+                lg: "40px",
+                md: "30px",
+                xs: "20px",
+              },
+              fontWeight: {
+                lg: "700",
+                md: "400",
+                xs: "300",
+              },
             })}
           >
             برترین آثار آژانس میفا
@@ -37,7 +46,7 @@ const BestProjects = () => {
         </div>
         <div className="relative">
           <div
-            className="absolute top-[140px] right-[-70px] cursor-pointer"
+            className="absolute top-[140px] right-[-70px] cursor-pointer lg:block hidden"
             onClick={() => swiperRef.current?.slidePrev()}
           >
             <Image
@@ -48,7 +57,7 @@ const BestProjects = () => {
             />
           </div>
           <div
-            className="absolute top-[140px] left-[-70px] cursor-pointer"
+            className="absolute top-[140px] left-[-70px] cursor-pointer lg:block hidden"
             onClick={() => swiperRef.current?.slideNext()}
           >
             <Image
@@ -60,10 +69,6 @@ const BestProjects = () => {
             />
           </div>
           <Swiper
-            pagination={{
-              dynamicBullets: true,
-              dynamicMainBullets: 1,
-            }}
             modules={[Pagination]}
             // breakpoints={{
             //   "640": {
@@ -71,16 +76,32 @@ const BestProjects = () => {
             //     spaceBetween: 20,
             //   },
             // }}
-            slidesPerView={3}
             onBeforeInit={(swiper) => {
               swiperRef.current = swiper;
             }}
-            spaceBetween={30}
+            breakpoints={{
+              640: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                pagination: {
+                  dynamicBullets: true,
+                  dynamicMainBullets: 1,
+                },
+              },
+            }}
             className="best-projects-slider relative"
           >
             {[...Array(9)]?.map((item ,index) => (
               <SwiperSlide key={index} className="relative">
-                <div className="flex flex-col gap-y-6">
+                <div className="flex flex-col lg:gap-y-6 gap-y-3">
                   <div className="relative">
                     <div className="w-full h-full absolute bg-best-project-item"></div>
                     <div className="px-[18px] pt-2.5 pb-4 border relative z-10 group cursor-pointer">
@@ -99,7 +120,10 @@ const BestProjects = () => {
                       sx={(theme) => ({
                         color: theme.palette.common.white,
                         fontSize: "13px",
-                        fontWeight: "500",
+                        fontWeight: {
+                          xs: "300",
+                          md: "500",
+                        },
                         backgroundColor: theme.palette.secondary.main,
                         borderRadius: 0,
                         width: "94px",
@@ -118,8 +142,14 @@ const BestProjects = () => {
                     <Typography
                       sx={(theme) => ({
                         color: theme.palette.common.white,
-                        fontSize: "20px",
-                        fontWeight: "500",
+                        fontSize: {
+                          xs: "16px",
+                          lg: "20px",
+                        },
+                        fontWeight: {
+                          xs: "300",
+                          md: "500",
+                        },
                       })}
                     >
                       داری چوب

@@ -20,27 +20,37 @@ const stats = [
 
 const OurBeginning = () => {
   return (
-    <div className="pb-[300px] bg-our-beginning-cloud bg-no-repeat bg-[center_top_3rem] bg-cover">
+    <div className="lg:pb-[300px] pb-[50px] bg-our-beginning-cloud bg-no-repeat bg-[center_top_3rem] bg-cover">
       <div className="container">
         <div className="grid grid-cols-5">
-          <div className="col-span-2 relative">
-            <div className="absolute h-[350px] bottom-[140px] w-full bg-fist-inner-gradient"></div>
+          <div className="lg:col-span-2 col-span-5 relative lg:order-1 order-2">
+            <div className="absolute h-[350px] lg:bottom-[140px] bottom-0 w-full md:bg-fist-inner-gradient bg-fist-inner-gradient-res"></div>
             <Image
               src={"/fists.png"}
               alt=""
               width={520}
               height={380}
-              className="w-[520px] h-[380px]"
+              className="md:w-[520px] md:h-[380px] w-[270px] h-[200px] mx-auto"
             />
           </div>
-          <div className="col-span-3 flex flex-col gap-y-4">
+          <div className="lg:col-span-3 col-span-5 flex flex-col gap-y-4 lg:order-2 order-1">
             <div className="flex justify-between items-center gap-x-4">
-              <Image src={"/star.png"} alt="star" height={39} width={39} />
+              <Image
+                src={"/star.png"}
+                alt="star"
+                height={39}
+                width={39}
+                className="lg:w-[39px] lg:h-[39px] w-[25px] h-[25px]"
+              />
               <div className="h-[1px] flex-1 bg-white opacity-50"></div>
               <Typography
                 sx={(theme) => ({
                   color: theme.palette.common.white,
-                  fontSize: "40px",
+                  fontSize: {
+                    lg: "40px",
+                    md: "30px",
+                    xs: "20px",
+                  },
                   fontWeight: "bold",
                 })}
               >
@@ -50,7 +60,12 @@ const OurBeginning = () => {
             <Typography
               sx={(theme) => ({
                 color: theme.palette.common.white,
-                fontSize: "22px",
+                fontSize: {
+                  lg: "22px",
+                  md: "20px",
+                  xs: "10px",
+                },
+                textAlign: "justify",
               })}
             >
               مجموعه میفا با بیش از 5 سال سابقه به صورت رسمی در حوزه دیجــیتال
@@ -69,7 +84,11 @@ const OurBeginning = () => {
                 <div key={index} className="flex flex-col gap-y-5 items-center">
                   <Typography
                     sx={(theme) => ({
-                      fontSize: "80px",
+                      fontSize: {
+                        lg: "80px",
+                        md: "60px",
+                        xs: "40px",
+                      },
                       color: theme.palette.common.white,
                       fontWeight: "bold",
                     })}
@@ -79,7 +98,11 @@ const OurBeginning = () => {
                   </Typography>
                   <Typography
                     sx={(theme) => ({
-                      fontSize: "18px",
+                      fontSize: {
+                        lg: "18px",
+                        md: "16px",
+                        xs: "10px",
+                      },
                       fontWeight: "light",
                       color: theme.palette.common.white,
                       marginTop: "-40px",
@@ -93,14 +116,26 @@ const OurBeginning = () => {
             <Button
               sx={(theme) => ({
                 backgroundColor: theme.palette.secondary.main,
-                height: "41px",
+                height: {
+                  lg: "50px",
+                  md: "40px",
+                  xs: "30px",
+                },
                 borderRadius: "0px",
                 paddingY: "0px",
                 color: theme.palette.common.white,
                 gap: "4px",
-                fontSize: "20px",
+                fontSize: {
+                  lg: "20px",
+                  md: "14px",
+                  xs: "10px",
+                },
                 width: "fit-content",
-                marginTop: "20px",
+                marginTop: {
+                  lg: "20px",
+                  md: "10px",
+                  xs: "5px",
+                },
               })}
             >
               <Image src={"/councilArrow.svg"} alt="" height={20} width={53} />

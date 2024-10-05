@@ -19,13 +19,15 @@ const Header = () => {
   });
 
   return (
-    <div className="container">
+    <div className="container z-[99] relative">
       <div className="pt-10 flex items-center justify-between sticky top-0 bg-transparent">
         <Image src={"/logo.svg"} alt="mifa-logo" width={125} height={40} />
         <HeaderLinks />
-        <Button variant="outlined" sx={loginButtonStyles}>
-          ورود / ثبت نام
-        </Button>
+        <div className="invisible">
+          <Button variant="outlined" sx={loginButtonStyles}>
+            ورود / ثبت نام
+          </Button>
+        </div>
       </div>
     </div>
   );

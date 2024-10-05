@@ -7,7 +7,7 @@
 }
 
 .best-projects-slider {
-  @apply h-[440px];
+  @apply lg:h-[440px] sm:h-[500px] h-[330px];
 }
 
 .best-projects-slider .swiper-pagination {
