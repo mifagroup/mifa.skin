@@ -5,7 +5,16 @@ const darkTheme = createTheme({
   typography: {
     fontFamily: "__doran_a0f346, __doran_Fallback_a0f346",
   },
-
+  breakpoints: {
+    keys: ["xs", "sm", "md", "lg", "xl"],
+    values: {
+      xs: 350,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+    },
+  },
   palette: {
     mode: "dark",
     primary: {

@@ -71,8 +71,8 @@ const Footer = () => {
   const swiperRef = useRef<SwiperType>();
 
   return (
-    <div className="bg-bottom-cloud bg-no-repeat bg-bottom bg-[100%,1920px]">
-      <div className="container mb-[300px]">
+    <div className="bg-bottom-cloud bg-no-repeat bg-bottom bg-[100%,1920px] lg:px-0 px-2">
+      <div className="container lg:mb-[300px] mb-[100px]">
         <div className="flex flex-col gap-y-14">
           <div className="flex justify-between items-center gap-x-2">
             <Image src={"/star.png"} alt="star" height={39} width={39} />
@@ -80,18 +80,26 @@ const Footer = () => {
             <Typography
               sx={(theme) => ({
                 color: theme.palette.common.white,
-                fontSize: "40px",
-                fontWeight: "bold",
+                fontSize: {
+                  lg: "40px",
+                  md: "30px",
+                  xs: "20px",
+                },
+                fontWeight: {
+                  lg: "bold",
+                  md: "medium",
+                  xs: "300",
+                },
               })}
             >
               مقالات آموزشی
             </Typography>
           </div>
           <div className="relative">
-            <div className="bg-[#162144] absolute h-full w-full border border-[#ffffff10] top-12"></div>
+            <div className="bg-[#162144] absolute md:h-full h-[90%] w-full border border-[#ffffff10] top-12"></div>
             <div className="relative">
               <div
-                className="absolute top-[140px] right-5 cursor-pointer"
+                className="absolute top-[140px] md:right-5 right-3 cursor-pointer"
                 onClick={() => swiperRef.current?.slidePrev()}
               >
                 <Image
@@ -99,10 +107,11 @@ const Footer = () => {
                   alt="arrow"
                   width={50}
                   height={50}
+                  className="lg:w-[50px] lg:h-[50px] w-[30px] h-[30px]"
                 />
               </div>
               <div
-                className="absolute top-[140px] left-5 cursor-pointer"
+                className="absolute top-[140px] md:left-5 left-3 cursor-pointer"
                 onClick={() => swiperRef.current?.slideNext()}
               >
                 <Image
@@ -110,7 +119,7 @@ const Footer = () => {
                   alt="arrow"
                   width={50}
                   height={50}
-                  className="rotate-180"
+                  className="rotate-180 lg:w-[50px] lg:h-[50px] w-[30px] h-[30px]"
                 />
               </div>
               <Swiper
@@ -120,12 +129,28 @@ const Footer = () => {
                 //     spaceBetween: 20,
                 //   },
                 // }}
-                slidesPerView={3}
                 onBeforeInit={(swiper) => {
                   swiperRef.current = swiper;
                 }}
-                spaceBetween={50}
-                className="relative w-[85%]"
+                className="relative md:w-[85%] w-[65%]"
+                breakpoints={{
+                  640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                  },
+                  768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                  },
+                  1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                    pagination: {
+                      dynamicBullets: true,
+                      dynamicMainBullets: 1,
+                    },
+                  },
+                }}
               >
                 {[...Array(9)]?.map(() => (
                   <SwiperSlide className="relative">
@@ -145,7 +170,11 @@ const Footer = () => {
                       <div className="flex flex-col gap-y-3">
                         <Typography
                           sx={(theme) => ({
-                            fontSize: "20px",
+                            fontSize: {
+                              lg: "20px",
+                              md: "16px",
+                              xs: "12px",
+                            },
                             fontWeight: "800",
                             color: theme.palette.common.white,
                           })}
@@ -154,7 +183,10 @@ const Footer = () => {
                         </Typography>
                         <Typography
                           sx={(theme) => ({
-                            fontSize: "13px",
+                            fontSize: {
+                              md: "13px",
+                              xs: "10px",
+                            },
                             color: theme.palette.common.white,
                           })}
                         >
@@ -164,11 +196,20 @@ const Footer = () => {
                         <Button
                           sx={(theme) => ({
                             color: theme.palette.common.white,
-                            fontSize: "13px",
-                            fontWeight: "500",
+                            fontSize: {
+                              md: "13px",
+                              xs: "10px",
+                            },
+                            fontWeight: {
+                              md: "500",
+                              xs: "300",
+                            },
                             backgroundColor: theme.palette.secondary.main,
                             borderRadius: 0,
-                            width: "94px",
+                            width: {
+                              md: "94px",
+                              xs: "80px",
+                            },
                             height: "27px",
                           })}
                         >
@@ -190,10 +231,10 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="pb-[150px]">
+      <div className="lg:pb-[150px] pb-[50px]">
         <div className="container">
-          <div className="grid grid-cols-7 gap-x-[70px]">
-            <div className="flex flex-col col-span-3 gap-y-6">
+          <div className="grid grid-cols-7 lg:gap-x-[70px] gap-y-[30px]">
+            <div className="flex flex-col lg:col-span-3 col-span-7 gap-y-6">
               <div className="flex flex-col gap-y-3">
                 <div className="flex items-center gap-x-3">
                   <Image
@@ -205,8 +246,16 @@ const Footer = () => {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.common.white,
-                      fontSize: "24px",
-                      fontWeight: "800",
+                      fontSize: {
+                        lg: "30px",
+                        md: "20px",
+                        xs: "16px",
+                      },
+                      fontWeight: {
+                        lg: "800",
+                        md: "600",
+                        xs: "400",
+                      },
                     })}
                   >
                     راه‌های ارتباطی بـا آژانس دیجیتال مارکتینگ میفا
@@ -214,10 +263,20 @@ const Footer = () => {
                 </div>
                 <Typography
                   sx={(theme) => ({
-                    fontSize: "20px",
+                    fontSize: {
+                      lg: "20px",
+                      md: "16px",
+                      xs: "12px",
+                    },
                     color: theme.palette.common.white,
-                    maxWidth: "500px",
-                    paddingRight: "30px",
+                    maxWidth: {
+                      lg: "500px",
+                      md: "100%",
+                    },
+                    paddingRight: {
+                      lg: "30px",
+                      md: "0px",
+                    },
                   })}
                 >
                   نـشـانـی:لـورم ایپـسـوم مــتــن ســاخـتـگـی با تــولیـــد
@@ -232,8 +291,16 @@ const Footer = () => {
                       <Typography
                         sx={(theme) => ({
                           color: theme.palette.common.white,
-                          fontSize: "20px",
-                          fontWeight: "800",
+                          fontSize: {
+                            lg: "20px",
+                            md: "16px",
+                            xs: "12px",
+                          },
+                          fontWeight: {
+                            lg: "800",
+                            md: "600",
+                            xs: "400",
+                          },
                         })}
                       >
                         {item.title}:
@@ -241,7 +308,11 @@ const Footer = () => {
                       <Typography
                         sx={(theme) => ({
                           color: theme.palette.common.white,
-                          fontSize: "20px",
+                          fontSize: {
+                            lg: "20px",
+                            md: "16px",
+                            xs: "12px",
+                          },
                         })}
                       >
                         {item.value}
@@ -251,12 +322,20 @@ const Footer = () => {
                 ))}
               </div>
             </div>
-            <div className="flex flex-col col-span-1 gap-y-10">
+            <div className="flex flex-col lg:col-span-1 col-span-3 gap-y-10">
               <Typography
                 sx={(theme) => ({
                   color: theme.palette.common.white,
-                  fontSize: "20px",
-                  fontWeight: "800",
+                  fontSize: {
+                    lg: "20px",
+                    md: "16px",
+                    xs: "12px",
+                  },
+                  fontWeight: {
+                    lg: "800",
+                    md: "600",
+                    xs: "400",
+                  },
                 })}
               >
                 دسترسی سریع
@@ -272,7 +351,11 @@ const Footer = () => {
                     />
                     <Typography
                       sx={(theme) => ({
-                        fontSize: "20px",
+                        fontSize: {
+                          lg: "20px",
+                          md: "16px",
+                          xs: "12px",
+                        },
                         color: theme.palette.common.white,
                         cursor: "pointer",
                       })}
@@ -283,12 +366,20 @@ const Footer = () => {
                 ))}
               </div>
             </div>
-            <div className="flex flex-col col-span-1 gap-y-10">
+            <div className="flex flex-col lg:col-span-1 col-span-3 gap-y-10">
               <Typography
                 sx={(theme) => ({
                   color: theme.palette.common.white,
-                  fontSize: "20px",
-                  fontWeight: "800",
+                  fontSize: {
+                    lg: "20px",
+                    md: "16px",
+                    xs: "12px",
+                  },
+                  fontWeight: {
+                    lg: "800",
+                    md: "600",
+                    xs: "400",
+                  },
                 })}
               >
                 لینک های مهم
@@ -304,7 +395,11 @@ const Footer = () => {
                     />
                     <Typography
                       sx={(theme) => ({
-                        fontSize: "20px",
+                        fontSize: {
+                          lg: "20px",
+                          md: "16px",
+                          xs: "12px",
+                        },
                         color: theme.palette.common.white,
                         cursor: "pointer",
                       })}
@@ -315,29 +410,46 @@ const Footer = () => {
                 ))}
               </div>
             </div>
-            <div className="flex col-span-2 flex-col gap-y-10">
-              <Typography
-                sx={(theme) => ({
-                  color: theme.palette.common.white,
-                  fontSize: "20px",
-                  fontWeight: "800",
-                })}
-              >
-                شبکه اجتماعی
-              </Typography>
-              <Typography
-                sx={(theme) => ({
-                  color: theme.palette.common.white,
-                  fontSize: "18px",
-                  textAlign: "justify",
-                  maxWidth: "314px",
-                })}
-              >
-                لورم ایپسوم مـتن ساختگی با تــولید سادگی نامفـهـوم از صنـعـت
-                چـاپ، و با استـفــاده از طــراحــان گــرافــیـک است، چاپگرها و
-                متون بلکه روزنامه و مـجله در ستون و سطرآنچنان که لازم است.
-              </Typography>
-              <div className="flex items-center justify-center gap-x-3">
+            <div className="flex lg:col-span-2 col-span-7 lg:flex-col items-center gap-x-4 flex-row gap-y-10">
+              <div className="flex flex-col">
+                <Typography
+                  sx={(theme) => ({
+                    color: theme.palette.common.white,
+                    fontSize: {
+                      lg: "20px",
+                      md: "16px",
+                      xs: "12px",
+                    },
+                    fontWeight: {
+                      lg: "800",
+                      md: "600",
+                      xs: "400",
+                    },
+                  })}
+                >
+                  شبکه اجتماعی
+                </Typography>
+                <Typography
+                  sx={(theme) => ({
+                    color: theme.palette.common.white,
+                    fontSize: {
+                      lg: "18px",
+                      md: "16px",
+                      xs: "12px",
+                    },
+                    textAlign: "justify",
+                    maxWidth: {
+                      lg: "314px",
+                      xs: "100%",
+                    },
+                  })}
+                >
+                  لورم ایپسوم مـتن ساختگی با تــولید سادگی نامفـهـوم از صنـعـت
+                  چـاپ، و با استـفــاده از طــراحــان گــرافــیـک است، چاپگرها و
+                  متون بلکه روزنامه و مـجله در ستون و سطرآنچنان که لازم است.
+                </Typography>
+              </div>
+              <div className="flex lg:flex-row flex-col items-center justify-center gap-3 min-w-[32px]">
                 <Link href={""}>
                   <Image
                     src={"/instagram.svg"}

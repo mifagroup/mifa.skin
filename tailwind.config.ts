@@ -22,6 +22,10 @@ const config: Config = {
           "linear-gradient(0deg, #141E45 10%, #141E4510 100%)",
         "about-linear-gradient":
           "linear-gradient(to bottom, #141E4501 35%,#141E45 75%)",
+        "about-linear-gradient-res":
+          "linear-gradient(0deg, #141E45 15%,transparent,transparent,#141E4500 100%)",
+        "about-linear-gradient-res-2":
+          "linear-gradient(0deg, #141E45 15%,transparent,transparent,#141E4500 100%)",
         "best-project-item":
           "linear-gradient(140deg, #ffffff30 0%, #ffffff10 100%)",
         "service-item-gradient":
@@ -29,6 +33,8 @@ const config: Config = {
         "our-beginning-cloud": "url('/ourBeginningCloud.png')",
         "fist-inner-gradient":
           "linear-gradient(0deg, #141E45 10%, #141E4501 100%)",
+        "fist-inner-gradient-res":
+          "linear-gradient(0deg, #141E45 0%,transparent, #141E4501 100%)",
         "input-background":
           "linear-gradient(140deg, #ffffff15 0%, #ffffff02 100%)",
         "request-background-linear":
