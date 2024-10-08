@@ -1,11 +1,19 @@
 "use client";
 import { Button, Typography } from "@mui/material";
 import Image from "next/image";
-import React from "react";
+import React, { MutableRefObject } from "react";
 
-const ContactUs = () => {
+const ContactUs = ({
+  sectionRef,
+}: {
+  sectionRef: MutableRefObject<HTMLDivElement | null>;
+}) => {
   return (
-    <div className="container lg:mb-[380px] mb-[100px] lg:px-0 px-2">
+    <div
+      className="container lg:mb-[380px] mb-[100px] lg:px-0 px-2"
+      ref={sectionRef}
+      id="contactSection"
+    >
       <div className="grid grid-cols-2">
         <div className="lg:col-span-1 col-span-2 flex flex-col mt-20 relative">
           <div className="absolute w-full lg:h-[150px] bottom-0 bg-request-form-background-linear z-50"></div>

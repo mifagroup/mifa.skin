@@ -1,11 +1,19 @@
 "use client";
 import { Button, Typography } from "@mui/material";
 import Image from "next/image";
-import React from "react";
+import React, { MutableRefObject } from "react";
 
-const Hero = () => {
+const Hero = ({
+  sectionRef,
+}: {
+  sectionRef: MutableRefObject<HTMLDivElement | null>;
+}) => {
   return (
-    <div className="bg-hero-background-image bg-center md:bg-cover sm:bg-[900px,600px] bg-no-repeat md:mt-[-79px] mt-[-200px] flex flex-col lg:pt-[260px] md:pt-[120px] pt-[150px]">
+    <div
+      id="heroSection"
+      ref={sectionRef}
+      className="bg-hero-background-image md:bg-center bg-right-bottom md:bg-cover sm:bg-[900px,600px] bg-no-repeat md:mt-[-79px] mt-[-200px] flex flex-col lg:pt-[260px] md:pt-[120px] pt-[150px]"
+    >
       <div className="lg:h-[1089px] md:h-[900px] h-[700px] w-full absolute top-0 z-30 bg-hero-linear-gradient"></div>
       <div className="container flex lg:flex-row flex-col justify-end items-center">
         <Image
@@ -49,8 +57,8 @@ const Hero = () => {
                 textAlign: "justify",
               })}
             >
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنـعـت چاپ و بـا
-              استـفـاده از طراحـان گرافیـک است
+              اینجا نقطه آغاز ماست… <br />
+              جایی که ایده‌ها رنگ می‌گیرند و بودن ما آغاز می‌شود…
             </Typography>
           </div>
           <div

@@ -1,3 +1,6 @@
+"use client";
+
+import { useRef } from "react";
 import {
   AboutMifa,
   BestProjects,
@@ -10,15 +13,16 @@ import {
 } from "./components";
 
 export default function Home() {
+  const sectionRefs = [useRef(null), useRef(null), useRef(null)];
   return (
     <div>
-      <Header />
-      <Hero />
-      <AboutMifa />
+      <Header sectionRefs={sectionRefs} />
+      <Hero sectionRef={sectionRefs[0]} />
+      <AboutMifa sectionRef={sectionRefs[1]} />
       <BestProjects />
       <OurServices />
       <OurBeginning />
-      <ContactUs />
+      <ContactUs sectionRef={sectionRefs[2]} />
       <Footer />
     </div>
   );

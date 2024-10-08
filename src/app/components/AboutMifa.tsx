@@ -1,11 +1,19 @@
 "use client";
 import { Button, Typography } from "@mui/material";
 import Image from "next/image";
-import React from "react";
+import React, { MutableRefObject } from "react";
 
-const AboutMifa = () => {
+const AboutMifa = ({
+  sectionRef,
+}: {
+  sectionRef: MutableRefObject<HTMLDivElement | null>;
+}) => {
   return (
-    <div className="bg-about-mifa 2xl:bg-cover lg:bg-bottom bg-[0px_150px] bg-no-repeat lg:h-[950px] md:h-[620px] h-[700px] flex justify-between items-center relative lg:pt-0 md:pt-[190px] pt-[100px]">
+    <div
+      id="aboutSection"
+      ref={sectionRef}
+      className="bg-about-mifa 2xl:bg-cover lg:bg-bottom bg-[0px_150px] bg-no-repeat lg:h-[950px] md:h-[620px] h-[700px] flex justify-between items-center relative lg:pt-0 md:pt-[190px] pt-[100px]"
+    >
       <div className="lg:h-[950px] md:h-[750px] h-[700px] w-full absolute top-0 z-30 lg:bg-about-linear-gradient md:bg-about-linear-gradient-res bg-about-linear-gradient-res-2"></div>
       <div className="container">
         <div className="flex lg:flex-row flex-col justify-between">
