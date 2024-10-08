@@ -12,8 +12,8 @@ const Blogs = () => {
   const swiperRef = useRef<SwiperType>();
 
   return (
-  
-  );
+      <div></div>
+      );
 };
 
 export default Blogs;

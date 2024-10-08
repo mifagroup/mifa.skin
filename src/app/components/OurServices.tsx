@@ -56,8 +56,11 @@ const OurServices = () => {
         />
       </div>
       <div className="grid grid-cols-4 items-center justify-between lg:gap-x-[40px] md:gap-x-[20px] md:gap-y-[80px] gap-x-5 gap-y-[70px]">
-        {data?.map((item) => (
-          <div className="border w-full bg-service-item-gradient lg:col-span-1 col-span-2 p-[18px] h-full">
+        {data?.map((item, index) => (
+          <div
+            key={index}
+            className="border w-full bg-service-item-gradient lg:col-span-1 col-span-2 p-[18px] h-full"
+          >
             <Image
               src={`/${item.id}.png`}
               alt="image"

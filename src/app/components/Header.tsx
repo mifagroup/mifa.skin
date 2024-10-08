@@ -104,6 +104,7 @@ const Header = ({
                     padding: "0px",
                   },
                 }}
+                key={link.id}
               >
                 <AccordionSummary
                   sx={{}}
@@ -123,7 +124,7 @@ const Header = ({
                 <AccordionDetails>
                   <div className="flex flex-col gap-y-4">
                     {link.children.map((child) => (
-                      <Typography>{child.title}</Typography>
+                      <Typography key={child.id}>{child.title}</Typography>
                     ))}
                   </div>
                 </AccordionDetails>

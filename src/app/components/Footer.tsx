@@ -152,8 +152,8 @@ const Footer = () => {
                   },
                 }}
               >
-                {[...Array(9)]?.map(() => (
-                  <SwiperSlide className="relative">
+                {[...Array(9)]?.map((item ,index) => (
+                  <SwiperSlide key={index} className="relative">
                     <div className="flex flex-col gap-y-6">
                       <div className="relative">
                         <div className="relative z-10 group cursor-pointer">
@@ -284,8 +284,8 @@ const Footer = () => {
                 </Typography>
               </div>
               <div className="flex flex-col gap-y-4">
-                {connectionItems?.map((item) => (
-                  <div className="flex items-center gap-x-3">
+                {connectionItems?.map((item , index) => (
+                  <div key={index} className="flex items-center gap-x-3">
                     <Image src={item.icon} alt="icon" width={20} height={20} />
                     <div className="flex items-center gap-x-2">
                       <Typography
@@ -341,8 +341,8 @@ const Footer = () => {
                 دسترسی سریع
               </Typography>
               <div className="flex flex-col gap-y-3">
-                {quickActions?.map((item) => (
-                  <div className="flex items-center gap-x-2">
+                {quickActions?.map((item , index) => (
+                  <div key={index} className="flex items-center gap-x-2">
                     <Image
                       src={"/filled-star-icon.svg"}
                       alt="icon"
@@ -385,8 +385,8 @@ const Footer = () => {
                 لینک های مهم
               </Typography>
               <div className="flex flex-col gap-y-3">
-                {importantLinks?.map((item) => (
-                  <div className="flex items-center gap-x-2">
+                {importantLinks?.map((item , index) => (
+                  <div key={index} className="flex items-center gap-x-2">
                     <Image
                       src={"/filled-star-icon.svg"}
                       alt="icon"

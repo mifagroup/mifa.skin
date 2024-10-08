@@ -103,8 +103,10 @@ const HeaderLinks = ({
                   }}
                 >
                   <div className="flex flex-col gap-y-5">
-                    {link.children?.map((child) => (
-                      <Link href={""}>{child.title}</Link>
+                    {link.children?.map((child, index) => (
+                      <Link href={""} key={index}>
+                        {child.title}
+                      </Link>
                     ))}
                   </div>
                 </Popover>
