@@ -1,5 +1,5 @@
 "use client";
-import { Button, Typography } from "@mui/material";
+import { Button, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 
@@ -19,12 +19,24 @@ const stats = [
 ];
 
 const OurBeginning = () => {
+  const theme = useTheme();
+
   return (
-    <div className="lg:pb-[300px] pb-[50px] bg-our-beginning-cloud bg-no-repeat bg-[center_top_3rem] bg-cover">
+    <div
+      className={`lg:pb-[300px] pb-[50px] bg-our-beginning-cloud bg-no-repeat bg-[center_top_3rem] bg-cover ${
+        theme.palette.mode === "light" && "bg-our-beginning-cloud-light"
+      }`}
+    >
       <div className="container">
         <div className="grid grid-cols-5">
           <div className="lg:col-span-2 col-span-5 relative lg:order-1 order-2">
-            <div className="absolute h-[350px] lg:bottom-[140px] bottom-0 w-full md:bg-fist-inner-gradient bg-fist-inner-gradient-res"></div>
+            <div
+              className={`absolute h-[350px] lg:bottom-[140px] bottom-0 w-full ${
+                theme.palette.mode === "dark"
+                  ? "md:bg-fist-inner-gradient bg-fist-inner-gradient-res"
+                  : "md:bg-fist-inner-gradient-light bg-fist-inner-gradient-res-light"
+              }`}
+            ></div>
             <Image
               src={"/fists.png"}
               alt=""
@@ -36,13 +48,21 @@ const OurBeginning = () => {
           <div className="lg:col-span-3 col-span-5 flex flex-col gap-y-4 lg:order-2 order-1">
             <div className="flex justify-between items-center gap-x-4">
               <Image
-                src={"/star.png"}
+                src={
+                  theme.palette.mode === "dark"
+                    ? "/star.png"
+                    : "/star-light.png"
+                }
                 alt="star"
                 height={39}
                 width={39}
                 className="lg:w-[39px] lg:h-[39px] w-[25px] h-[25px]"
               />
-              <div className="h-[1px] flex-1 bg-white opacity-50"></div>
+              <div
+                className={`h-[1px] flex-1 opacity-50 ${
+                  theme.palette.mode === "dark" ? "bg-white" : "bg-primary"
+                }`}
+              ></div>
               <Typography
                 sx={(theme) => ({
                   color: theme.palette.common.white,
@@ -80,7 +100,7 @@ const OurBeginning = () => {
               به ثـمر نشستن و ظهور پدیده کنار شما باشد.
             </Typography>
             <div className="flex items-center justify-between">
-              {stats?.map((stat , index) => (
+              {stats?.map((stat, index) => (
                 <div key={index} className="flex flex-col gap-y-5 items-center">
                   <Typography
                     sx={(theme) => ({
@@ -123,6 +143,7 @@ const OurBeginning = () => {
                 },
                 borderRadius: "0px",
                 paddingY: "0px",
+                paddingX: "20px",
                 color: theme.palette.common.white,
                 gap: "4px",
                 fontSize: {
@@ -138,7 +159,6 @@ const OurBeginning = () => {
                 },
               })}
             >
-              <Image src={"/councilArrow.svg"} alt="" height={20} width={53} />
               اطلاعات بیشتر
             </Button>
           </div>

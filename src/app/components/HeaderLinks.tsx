@@ -80,6 +80,7 @@ const HeaderLinks = ({
                   id={id}
                   open={open}
                   anchorEl={anchorEl}
+                  disableScrollLock
                   onClose={handleClose}
                   anchorOrigin={{
                     vertical: "bottom",

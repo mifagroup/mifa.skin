@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Button, Typography } from "@mui/material";
+import { Button, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
 import React, { useRef } from "react";
 // Import Swiper React components
@@ -70,13 +70,32 @@ const importantLinks = [
 const Footer = () => {
   const swiperRef = useRef<SwiperType>();
 
+  const theme = useTheme();
+
   return (
-    <div className="bg-bottom-cloud bg-no-repeat bg-bottom bg-[100%,1920px] lg:px-0 px-2">
+    <div
+      className={`bg-no-repeat bg-bottom bg-[100%,1920px] lg:px-0 px-2 ${
+        theme.palette.mode === "dark"
+          ? "bg-bottom-cloud"
+          : "bg-bottom-cloud-light"
+      }`}
+    >
       <div className="container lg:mb-[300px] mb-[100px]">
         <div className="flex flex-col gap-y-14">
           <div className="flex justify-between items-center gap-x-2">
-            <Image src={"/star.png"} alt="star" height={39} width={39} />
-            <div className="h-[1px] flex-1 bg-white opacity-50"></div>
+            <Image
+              src={
+                theme.palette.mode === "dark" ? "/star.png" : "/star-light.png"
+              }
+              alt="star"
+              height={39}
+              width={39}
+            />
+            <div
+              className={`h-[1px] flex-1 opacity-50 ${
+                theme.palette.mode === "dark" ? "bg-white" : "bg-primary"
+              }`}
+            ></div>
             <Typography
               sx={(theme) => ({
                 color: theme.palette.common.white,
@@ -96,14 +115,22 @@ const Footer = () => {
             </Typography>
           </div>
           <div className="relative">
-            <div className="bg-[#162144] absolute md:h-full h-[90%] w-full border border-[#ffffff10] top-12"></div>
+            <div
+              className={`absolute md:h-full h-[90%] w-full border border-[#ffffff10] shadow-md top-12 ${
+                theme.palette.mode === "dark" ? "bg-[#162144]" : "bg-white"
+              }`}
+            ></div>
             <div className="relative">
               <div
                 className="absolute top-[140px] md:right-5 right-3 cursor-pointer"
                 onClick={() => swiperRef.current?.slidePrev()}
               >
                 <Image
-                  src={"/bestProjectArrow.png"}
+                  src={
+                    theme.palette.mode === "dark"
+                      ? "/bestProjectArrow.png"
+                      : "/bestProjectArrow-light.png"
+                  }
                   alt="arrow"
                   width={50}
                   height={50}
@@ -115,7 +142,11 @@ const Footer = () => {
                 onClick={() => swiperRef.current?.slideNext()}
               >
                 <Image
-                  src={"/bestProjectArrow.png"}
+                  src={
+                    theme.palette.mode === "dark"
+                      ? "/bestProjectArrow.png"
+                      : "/bestProjectArrow-light.png"
+                  }
                   alt="arrow"
                   width={50}
                   height={50}
@@ -152,7 +183,7 @@ const Footer = () => {
                   },
                 }}
               >
-                {[...Array(9)]?.map((item ,index) => (
+                {[...Array(9)]?.map((item, index) => (
                   <SwiperSlide key={index} className="relative">
                     <div className="flex flex-col gap-y-6">
                       <div className="relative">
@@ -284,7 +315,7 @@ const Footer = () => {
                 </Typography>
               </div>
               <div className="flex flex-col gap-y-4">
-                {connectionItems?.map((item , index) => (
+                {connectionItems?.map((item, index) => (
                   <div key={index} className="flex items-center gap-x-3">
                     <Image src={item.icon} alt="icon" width={20} height={20} />
                     <div className="flex items-center gap-x-2">
@@ -341,7 +372,7 @@ const Footer = () => {
                 دسترسی سریع
               </Typography>
               <div className="flex flex-col gap-y-3">
-                {quickActions?.map((item , index) => (
+                {quickActions?.map((item, index) => (
                   <div key={index} className="flex items-center gap-x-2">
                     <Image
                       src={"/filled-star-icon.svg"}
@@ -385,7 +416,7 @@ const Footer = () => {
                 لینک های مهم
               </Typography>
               <div className="flex flex-col gap-y-3">
-                {importantLinks?.map((item , index) => (
+                {importantLinks?.map((item, index) => (
                   <div key={index} className="flex items-center gap-x-2">
                     <Image
                       src={"/filled-star-icon.svg"}

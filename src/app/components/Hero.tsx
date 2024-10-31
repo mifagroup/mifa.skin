@@ -1,5 +1,5 @@
 "use client";
-import { Button, Typography } from "@mui/material";
+import { Button, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
 import React, { MutableRefObject } from "react";
 
@@ -8,13 +8,21 @@ const Hero = ({
 }: {
   sectionRef: MutableRefObject<HTMLDivElement | null>;
 }) => {
+  const theme = useTheme();
+
   return (
     <div
       id="heroSection"
       ref={sectionRef}
       className="bg-hero-background-image md:bg-center bg-right-bottom md:bg-cover sm:bg-[900px,600px] bg-no-repeat md:mt-[-79px] mt-[-200px] flex flex-col lg:pt-[260px] md:pt-[120px] pt-[150px]"
     >
-      <div className="lg:h-[1089px] md:h-[900px] h-[700px] w-full absolute top-0 z-30 bg-hero-linear-gradient"></div>
+      <div
+        className={`lg:h-[1089px] md:h-[900px] h-[700px] w-full absolute top-0 z-30 ${
+          theme.palette.mode === "light"
+            ? "bg-hero-linear-gradient-light"
+            : "bg-hero-linear-gradient"
+        }`}
+      ></div>
       <div className="container flex lg:flex-row flex-col justify-end items-center">
         <Image
           src={"/hercules.png"}
@@ -81,7 +89,11 @@ const Hero = ({
               })}
             >
               <Image
-                src={"/councilArrow.svg"}
+                src={
+                  theme.palette.mode === "light"
+                    ? "/councilArrow-light.svg"
+                    : "/councilArrow.svg"
+                }
                 alt="arrow"
                 width={67}
                 height={24}
@@ -125,7 +137,7 @@ const Hero = ({
         alt=""
         width={1440}
         height={120}
-        className="w-[100%] lg:mt-[280px] mt-[-40px] z-40"
+        className="w-[100%] lg:mt-[270px] mt-[-40px] z-40"
       />
     </div>
   );

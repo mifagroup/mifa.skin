@@ -1,5 +1,5 @@
 "use client";
-import { Button, Typography } from "@mui/material";
+import { Button, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
 import React, { useRef } from "react";
 // Import Swiper React components
@@ -14,18 +14,26 @@ import { Pagination } from "swiper/modules";
 const BestProjects = () => {
   const swiperRef = useRef<SwiperType>();
 
+  const theme = useTheme();
+
   return (
     <div className="lg:pb-[370px] pb-[130px] lg:pt-0 md:pt-[200px] pt-[0px] lg:px-0 px-2">
       <div className="flex container flex-col lg:gap-y-16 gap-y-7">
         <div className="flex justify-between items-center gap-x-4">
           <Image
-            src={"/star.png"}
+            src={
+              theme.palette.mode === "dark" ? "/star.png" : "/star-light.png"
+            }
             alt="star"
             height={39}
             width={39}
             className="lg:h-[39px] lg:w-[39px] h-[25px] w-[25px]"
           />
-          <div className="h-[1px] flex-1 bg-white opacity-50"></div>
+          <div
+            className={`h-[1px] flex-1 opacity-50 ${
+              theme.palette.mode === "dark" ? "bg-white" : "bg-primary"
+            }`}
+          ></div>
           <Typography
             sx={(theme) => ({
               color: theme.palette.common.white,
@@ -50,7 +58,11 @@ const BestProjects = () => {
             onClick={() => swiperRef.current?.slidePrev()}
           >
             <Image
-              src={"/bestProjectArrow.png"}
+              src={
+                theme.palette.mode === "dark"
+                  ? "/bestProjectArrow.png"
+                  : "/bestProjectArrow-light.png"
+              }
               alt="arrow"
               width={50}
               height={50}
@@ -61,7 +73,11 @@ const BestProjects = () => {
             onClick={() => swiperRef.current?.slideNext()}
           >
             <Image
-              src={"/bestProjectArrow.png"}
+              src={
+                theme.palette.mode === "dark"
+                  ? "/bestProjectArrow.png"
+                  : "/bestProjectArrow-light.png"
+              }
               alt="arrow"
               width={50}
               height={50}
@@ -99,7 +115,7 @@ const BestProjects = () => {
             }}
             className="best-projects-slider relative"
           >
-            {[...Array(9)]?.map((item ,index) => (
+            {[...Array(9)]?.map((item, index) => (
               <SwiperSlide key={index} className="relative">
                 <div className="flex flex-col lg:gap-y-6 gap-y-3">
                   <div className="relative">

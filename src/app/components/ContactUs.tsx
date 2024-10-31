@@ -1,5 +1,5 @@
 "use client";
-import { Button, Typography } from "@mui/material";
+import { Button, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
 import React, { MutableRefObject } from "react";
 
@@ -8,6 +8,8 @@ const ContactUs = ({
 }: {
   sectionRef: MutableRefObject<HTMLDivElement | null>;
 }) => {
+  const theme = useTheme();
+
   return (
     <div
       className="container lg:mb-[380px] mb-[100px] lg:px-0 px-2"
@@ -16,7 +18,12 @@ const ContactUs = ({
     >
       <div className="grid grid-cols-2">
         <div className="lg:col-span-1 col-span-2 flex flex-col mt-20 relative">
-          <div className="absolute w-full lg:h-[150px] bottom-0 bg-request-form-background-linear z-50"></div>
+          <div
+            className={`absolute w-full lg:h-[150px] bottom-0 z-50 ${
+              theme.palette.mode === "dark" &&
+              "bg-request-form-background-linear"
+            }`}
+          ></div>
 
           <div className="flex flex-col gap-y-10">
             <div className="flex flex-col gap-y-2">
@@ -38,9 +45,17 @@ const ContactUs = ({
                 >
                   درخواست مشاوره برای پروژه
                 </Typography>
-                <div className="h-[1px] flex-1 bg-white opacity-50"></div>
+                <div
+                  className={`h-[1px] flex-1 opacity-50 ${
+                    theme.palette.mode === "dark" ? "bg-white" : "bg-primary"
+                  }`}
+                ></div>
                 <Image
-                  src={"/star.png"}
+                  src={
+                    theme.palette.mode === "dark"
+                      ? "/star.png"
+                      : "/star-light.png"
+                  }
                   alt="star"
                   height={39}
                   width={39}
@@ -62,19 +77,45 @@ const ContactUs = ({
               </Typography>
             </div>
             <div className="flex flex-col gap-y-4">
-              <div className="bg-input flex items-center gap-x-2 border p-3.5 border-[#ffffff50] bg-input-background">
-                <Image src={"/user-icon.svg"} alt="" width={20} height={20} />
+              <div className="bg-input flex items-center gap-x-2 border p-3.5 border-[#ffffff50] bg-input-background shadow-md">
+                <Image
+                  src={
+                    theme.palette.mode === "dark"
+                      ? "/user-icon.svg"
+                      : "/user-icon-light.svg"
+                  }
+                  alt=""
+                  width={20}
+                  height={20}
+                />
                 <input
                   type="text"
-                  className="bg-transparent lg:placeholder:text-[22px] sm:placeholder:text-[12px] text-white lg:text-[22px] text-[12px] w-full focus-visible:outline-none"
+                  className={`bg-transparent lg:placeholder:text-[22px] sm:placeholder:text-[12px] ${
+                    theme.palette.mode === "dark"
+                      ? "text-white"
+                      : "text-primary"
+                  } lg:text-[22px] text-[12px] w-full focus-visible:outline-none`}
                   placeholder="نام و نام خانوادگی"
                 />
               </div>
-              <div className="bg-input flex items-center gap-x-2 border p-3.5 border-[#ffffff50] bg-input-background">
-                <Image src={"/phone-icon.svg"} alt="" width={20} height={20} />
+              <div className="bg-input flex items-center gap-x-2 border p-3.5 border-[#ffffff50] bg-input-background shadow-md">
+                <Image
+                  src={
+                    theme.palette.mode === "dark"
+                      ? "/phone-icon.svg"
+                      : "/phone-icon-light.svg"
+                  }
+                  alt=""
+                  width={20}
+                  height={20}
+                />
                 <input
                   type="text"
-                  className="bg-transparent lg:placeholder:text-[22px] sm:placeholder:text-[12px] text-white lg:text-[22px] text-[12px] w-full focus-visible:outline-none"
+                  className={`bg-transparent lg:placeholder:text-[22px] sm:placeholder:text-[12px] ${
+                    theme.palette.mode === "dark"
+                      ? "text-white"
+                      : "text-primary"
+                  } lg:text-[22px] text-[12px] w-full focus-visible:outline-none`}
                   placeholder="شماره تماس"
                 />
               </div>
@@ -83,19 +124,27 @@ const ContactUs = ({
                 id=""
                 placeholder="متن پیام"
                 rows={6}
-                className="border border-[#ffffff50] bg-input-background p-3.5 bg-transparent lg:placeholder:text-[22px] sm:placeholder:text-[12px] text-white lg:text-[22px] text-[12px] w-full focus-visible:outline-none"
+                className={`border border-[#ffffff50] bg-input-background p-3.5 bg-transparent lg:placeholder:text-[22px] sm:placeholder:text-[12px] ${
+                  theme.palette.mode === "dark" ? "text-white" : "text-primary"
+                } lg:text-[22px] text-[12px] w-full focus-visible:outline-none shadow-md`}
               ></textarea>
             </div>
           </div>
         </div>
         <div className="relative lg:col-span-1 col-span-2 flex items-end lg:order-2 order-3">
-          <div className="absolute h-full w-full bg-request-background-linear"></div>
+          <div
+            className={
+              theme.palette.mode === "dark"
+                ? "absolute h-full w-full bg-request-background-linear"
+                : "absolute h-full w-full bg-request-background-linear-light"
+            }
+          ></div>
           <Image
             src={"/hercules-phone.png"}
             alt=""
             width={825}
             height={620}
-            className="lg:mr-[-70px] lg:w-[825px] lg:h-[620px] w-[350px] h-[270px] mx-auto"
+            className="lg:mr-[45px] lg:w-[825px] lg:h-[620px] w-[350px] h-[270px] mx-auto"
           />
         </div>
         <Button

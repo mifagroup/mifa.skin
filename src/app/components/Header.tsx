@@ -8,11 +8,12 @@ import {
   Drawer,
   Theme,
   Typography,
+  useTheme,
 } from "@mui/material";
 import Image from "next/image";
 import React, { MutableRefObject } from "react";
 import HeaderLinks from "./HeaderLinks";
-
+import { useTheme as themeChangerUseTheme } from "../providers/ThemeProvider";
 const links = [
   {
     id: 0,
@@ -63,6 +64,10 @@ const Header = ({
   sectionRefs: MutableRefObject<HTMLElement | null>[];
 }) => {
   const [open, setOpen] = React.useState(false);
+
+  const { toggleTheme } = themeChangerUseTheme();
+
+  const theme = useTheme();
 
   const loginButtonStyles = (theme: Theme) => ({
     border: `1px solid ${theme.palette.common.white}`,
@@ -170,7 +175,9 @@ const Header = ({
             className="lg:hidden block"
           />
           <Image
-            src={"/logo.svg"}
+            src={`${
+              theme.palette.mode === "light" ? "/logo-light.svg" : "/logo.svg"
+            }`}
             alt="mifa-logo"
             width={125}
             height={40}
@@ -178,9 +185,13 @@ const Header = ({
           />
         </div>
         <HeaderLinks sectionRefs={sectionRefs} links={links} />
-        <div className="invisible">
-          <Button variant="outlined" sx={loginButtonStyles}>
-            ورود / ثبت نام
+        <div>
+          <Button
+            variant={theme.palette.mode === "dark" ? "outlined" : "contained"}
+            sx={loginButtonStyles}
+            onClick={toggleTheme}
+          >
+            تغییر تم رنگی
           </Button>
         </div>
       </div>

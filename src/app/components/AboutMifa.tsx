@@ -1,5 +1,5 @@
 "use client";
-import { Button, Typography } from "@mui/material";
+import { Button, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
 import React, { MutableRefObject } from "react";
 
@@ -8,13 +8,21 @@ const AboutMifa = ({
 }: {
   sectionRef: MutableRefObject<HTMLDivElement | null>;
 }) => {
+  const theme = useTheme();
+
   return (
     <div
       id="aboutSection"
       ref={sectionRef}
       className="bg-about-mifa 2xl:bg-cover lg:bg-bottom bg-[0px_150px] bg-no-repeat lg:h-[950px] md:h-[620px] h-[700px] flex justify-between items-center relative lg:pt-0 md:pt-[190px] pt-[100px]"
     >
-      <div className="lg:h-[950px] md:h-[750px] h-[700px] w-full absolute top-0 z-30 lg:bg-about-linear-gradient md:bg-about-linear-gradient-res bg-about-linear-gradient-res-2"></div>
+      <div
+        className={`lg:h-[950px] md:h-[750px] h-[700px] w-full absolute top-0 z-30 ${
+          theme.palette.mode === "dark"
+            ? "lg:bg-about-linear-gradient md:bg-about-linear-gradient-res bg-about-linear-gradient-res-2"
+            : "lg:bg-about-linear-gradient-light md:bg-about-linear-gradient-res-light bg-about-linear-gradient-res-2-light"
+        }`}
+      ></div>
       <div className="container">
         <div className="flex lg:flex-row flex-col justify-between">
           <div className="flex flex-col lg:gap-y-8 gap-y-2 z-50 max-w-[750px] lg:pt-16 lg:px-0 px-2">
@@ -88,7 +96,11 @@ const AboutMifa = ({
                 })}
               >
                 <Image
-                  src={"/councilArrow.svg"}
+                  src={
+                    theme.palette.mode === "dark"
+                      ? "/councilArrow.svg"
+                      : "/councilArrow-light.svg"
+                  }
                   alt="arrow"
                   width={67}
                   height={24}

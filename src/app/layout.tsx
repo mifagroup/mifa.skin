@@ -1,8 +1,7 @@
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import localFont from "next/font/local";
 import "./globals.css";
-import { ThemeProvider } from "@mui/material";
-import { darkTheme, GlobalStyle } from "./config/theme";
+import ThemeProvider from "./providers/ThemeProvider";
 const doran = localFont({
   src: [
     {
@@ -47,10 +46,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${doran.className}`}>
         <AppRouterCacheProvider>
-          <ThemeProvider theme={darkTheme}>
-            {children}
-            <GlobalStyle />
-          </ThemeProvider>
+          <ThemeProvider>{children}</ThemeProvider>
         </AppRouterCacheProvider>
       </body>
     </html>
