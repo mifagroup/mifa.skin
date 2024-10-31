@@ -148,6 +148,7 @@ const Header = ({
                   });
                   setOpen(false);
                 }}
+                key={link.id}
               >
                 {link.title}
               </Typography>
