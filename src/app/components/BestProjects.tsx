@@ -134,7 +134,10 @@ const BestProjects = () => {
                   <div className="flex items-center justify-between">
                     <Button
                       sx={(theme) => ({
-                        color: theme.palette.common.white,
+                        color:
+                          theme.palette.mode === "light"
+                            ? "#ffffff"
+                            : theme.palette.common.white,
                         fontSize: "13px",
                         fontWeight: {
                           xs: "300",

@@ -156,7 +156,10 @@ const ContactUs = ({
             },
             borderRadius: "0px",
             paddingY: "0px",
-            color: theme.palette.common.white,
+            color:
+              theme.palette.mode === "light"
+                ? "#ffffff"
+                : theme.palette.common.white,
             gap: "4px",
             fontSize: {
               xs: "10px",

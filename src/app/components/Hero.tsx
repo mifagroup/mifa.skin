@@ -124,7 +124,10 @@ const Hero = ({
                   md: "500",
                   xs: "400",
                 },
-                color: theme.palette.common.white,
+                color:
+                  theme.palette.mode === "light"
+                    ? "#ffffff"
+                    : theme.palette.common.white,
               })}
             >
               در باره میفا

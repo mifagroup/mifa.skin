@@ -144,7 +144,10 @@ const OurBeginning = () => {
                 borderRadius: "0px",
                 paddingY: "0px",
                 paddingX: "20px",
-                color: theme.palette.common.white,
+                color:
+                  theme.palette.mode === "light"
+                    ? "#ffffff"
+                    : theme.palette.common.white,
                 gap: "4px",
                 fontSize: {
                   lg: "20px",

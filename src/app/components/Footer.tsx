@@ -226,7 +226,10 @@ const Footer = () => {
                         </Typography>
                         <Button
                           sx={(theme) => ({
-                            color: theme.palette.common.white,
+                            color:
+                              theme.palette.mode === "light"
+                                ? "#ffffff"
+                                : theme.palette.common.white,
                             fontSize: {
                               md: "13px",
                               xs: "10px",
