@@ -86,6 +86,41 @@ const Hero = ({
                   xs: "300",
                 },
                 columnGap: "5px",
+                zIndex: 1, // Ensures button text appears on top
+
+                "&::before": {
+                  content: '""',
+                  position: "absolute",
+                  top: 0,
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  width: "0%",
+                  height: "100%",
+                  backgroundColor: theme.palette.secondary.main,
+                  transition:
+                    "width 0.4s ease, border-radius 0.4s ease, opacity 0.4s ease",
+                  zIndex: 0, // Places the overlay behind the text
+                  borderRadius: "50% / 50%", // Start with curves on both top and bottom
+                  opacity: 0, // Start with 0 opacity
+                },
+
+                "&:hover::before": {
+                  width: "100%",
+                  borderRadius: "0", // Straighten out edges as it expands
+                  opacity: 1, // Fade in to full opacity on hover
+                },
+
+                "&:hover span": {
+                  color: "#ffffff",
+                  transform: "translateX(35%)",
+                },
+                span: {
+                  transform: "translateX(0%)",
+                  transition: "transform 0.3s ease",
+                },
+                "&:hover img": {
+                  visibility: "hidden",
+                },
               })}
             >
               <Image
@@ -99,8 +134,12 @@ const Hero = ({
                 height={24}
                 className="h-[24px] lg:w-[67px] w-[40px]"
               />
-              مشاوره رایگان
+
+              <span style={{ position: "relative", zIndex: 2 }}>
+                مشاوره رایگان
+              </span>
             </Button>
+
             <Button
               sx={(theme) => ({
                 backgroundColor: theme.palette.secondary.main,
@@ -128,10 +167,61 @@ const Hero = ({
                   theme.palette.mode === "light"
                     ? "#ffffff"
                     : theme.palette.common.white,
+                position: "relative",
+                overflow: "hidden",
+                zIndex: 1, // Ensures button text appears on top
+
+                "&::before": {
+                  content: '""',
+                  position: "absolute",
+                  top: 0,
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  width: "0%",
+                  height: "100%",
+                  backgroundColor:
+                    theme.palette.mode === "light"
+                      ? "#ffffff"
+                      : theme.palette.common.white,
+                  transition:
+                    "width 0.4s ease, border-radius 0.4s ease, opacity 0.4s ease",
+                  zIndex: 0, // Places the overlay behind the text
+                  borderRadius: "50% / 50%", // Start with curves on both top and bottom
+                  opacity: 0, // Start with 0 opacity
+                },
+
+                "&:hover::before": {
+                  width: "100%",
+                  borderRadius: "0", // Straighten out edges as it expands
+                  opacity: 1, // Fade in to full opacity on hover
+                },
+
+                "&:hover span": {
+                  color: theme.palette.secondary.main,
+                },
               })}
             >
-              در باره میفا
+              <span style={{ position: "relative", zIndex: 2 }}>
+                در باره میفا
+              </span>
             </Button>
+
+            {/* "&::before": {
+                content: '""',
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                width: "100%",
+                height: "100%",
+                backgroundColor: "#ffffff",
+
+                transform: "translate(-50%, -50%) scale(0)",
+                transition: "transform 0.4s ease-in-out",
+              },
+
+              "&:hover::before": {
+                transform: "translate(-50%, -50%) scale(1)",
+              }, */}
           </div>
         </div>
       </div>

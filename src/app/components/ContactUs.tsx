@@ -171,11 +171,50 @@ const ContactUs = ({
               lg: "140px",
             },
             marginTop: "20px",
+            zIndex: 1, // Ensures button text appears on top
+
+            "&::before": {
+              content: '""',
+              position: "absolute",
+              top: 0,
+              left: "50%",
+              transform: "translateX(-50%)",
+              width: "0%",
+              height: "100%",
+              backgroundColor:
+                theme.palette.mode === "light"
+                  ? "#ffffff"
+                  : theme.palette.common.white,
+              transition:
+                "width 0.4s ease, border-radius 0.4s ease, opacity 0.4s ease",
+              zIndex: 0, // Places the overlay behind the text
+              borderRadius: "50% / 50%", // Start with curves on both top and bottom
+              opacity: 0, // Start with 0 opacity
+            },
+
+            "&:hover::before": {
+              width: "100%",
+              borderRadius: "0", // Straighten out edges as it expands
+              opacity: 1, // Fade in to full opacity on hover
+            },
+
+            "&:hover span": {
+              color: theme.palette.secondary.main,
+              transform: "translateX(50%)",
+            },
+            span: {
+              transform: "translateX(0%)",
+              transition: "transform 0.3s ease",
+            },
+            "&:hover img": {
+              visibility: "hidden",
+            },
           })}
           className="lg:order-3 order-2"
         >
           <Image src={"/councilArrow.svg"} alt="" height={20} width={53} />
-          ارسال
+
+          <span style={{ position: "relative", zIndex: 2 }}>ارسال</span>
         </Button>
       </div>
     </div>

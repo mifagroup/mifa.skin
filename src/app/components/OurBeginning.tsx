@@ -136,33 +136,67 @@ const OurBeginning = () => {
             <Button
               sx={(theme) => ({
                 backgroundColor: theme.palette.secondary.main,
+                borderRadius: 0,
+                width: {
+                  lg: "166px",
+                  md: "100px",
+                  xs: "80px",
+                },
                 height: {
-                  lg: "50px",
-                  md: "40px",
+                  lg: "41px",
+                  md: "35px",
                   xs: "30px",
                 },
-                borderRadius: "0px",
-                paddingY: "0px",
-                paddingX: "20px",
-                color:
-                  theme.palette.mode === "light"
-                    ? "#ffffff"
-                    : theme.palette.common.white,
-                gap: "4px",
                 fontSize: {
                   lg: "20px",
                   md: "14px",
                   xs: "10px",
                 },
-                width: "fit-content",
-                marginTop: {
-                  lg: "20px",
-                  md: "10px",
-                  xs: "5px",
+                fontWeight: {
+                  md: "500",
+                  xs: "400",
+                },
+                color:
+                  theme.palette.mode === "light"
+                    ? "#ffffff"
+                    : theme.palette.common.white,
+                position: "relative",
+                overflow: "hidden",
+                zIndex: 1, // Ensures button text appears on top
+
+                "&::before": {
+                  content: '""',
+                  position: "absolute",
+                  top: 0,
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  width: "0%",
+                  height: "100%",
+                  backgroundColor:
+                    theme.palette.mode === "light"
+                      ? "#ffffff"
+                      : theme.palette.common.white,
+                  transition:
+                    "width 0.4s ease, border-radius 0.4s ease, opacity 0.4s ease",
+                  zIndex: 0, // Places the overlay behind the text
+                  borderRadius: "50% / 50%", // Start with curves on both top and bottom
+                  opacity: 0, // Start with 0 opacity
+                },
+
+                "&:hover::before": {
+                  width: "100%",
+                  borderRadius: "0", // Straighten out edges as it expands
+                  opacity: 1, // Fade in to full opacity on hover
+                },
+
+                "&:hover span": {
+                  color: theme.palette.secondary.main,
                 },
               })}
             >
-              اطلاعات بیشتر
+              <span style={{ position: "relative", zIndex: 2 }}>
+                اطلاعات بیشتر
+              </span>
             </Button>
           </div>
         </div>

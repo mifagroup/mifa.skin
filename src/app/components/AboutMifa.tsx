@@ -86,26 +86,65 @@ const AboutMifa = ({
                   fontSize: {
                     lg: "20px",
                     md: "14px",
-                    xs: "10px",
+                    sm: "10px",
                   },
                   fontWeight: {
-                    lg: "500",
-                    md: "400",
+                    md: "500",
                     xs: "300",
+                  },
+                  columnGap: "5px",
+                  zIndex: 1, // Ensures button text appears on top
+
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    top: 0,
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    width: "0%",
+                    height: "100%",
+                    backgroundColor: theme.palette.secondary.main,
+                    transition:
+                      "width 0.4s ease, border-radius 0.4s ease, opacity 0.4s ease",
+                    zIndex: 0, // Places the overlay behind the text
+                    borderRadius: "50% / 50%", // Start with curves on both top and bottom
+                    opacity: 0, // Start with 0 opacity
+                  },
+
+                  "&:hover::before": {
+                    width: "100%",
+                    borderRadius: "0", // Straighten out edges as it expands
+                    opacity: 1, // Fade in to full opacity on hover
+                  },
+
+                  "&:hover span": {
+                    color: "#ffffff",
+                    transform: "translateX(35%)",
+                  },
+                  span: {
+                    transform: "translateX(0%)",
+                    transition: "transform 0.3s ease",
+                  },
+                  "&:hover img": {
+                    visibility: "hidden",
                   },
                 })}
               >
                 <Image
                   src={
-                    theme.palette.mode === "dark"
-                      ? "/councilArrow.svg"
-                      : "/councilArrow-light.svg"
+                    theme.palette.mode === "light"
+                      ? "/councilArrow-light.svg"
+                      : "/councilArrow.svg"
                   }
                   alt="arrow"
                   width={67}
                   height={24}
+                  className="h-[24px] lg:w-[67px] w-[40px]"
                 />
-                مشاوره رایگان
+
+                <span style={{ position: "relative", zIndex: 2 }}>
+                  مشاوره رایگان
+                </span>
               </Button>
               <Button
                 sx={(theme) => ({
@@ -134,9 +173,43 @@ const AboutMifa = ({
                     theme.palette.mode === "light"
                       ? "#ffffff"
                       : theme.palette.common.white,
+                  position: "relative",
+                  overflow: "hidden",
+                  zIndex: 1, // Ensures button text appears on top
+
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    top: 0,
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    width: "0%",
+                    height: "100%",
+                    backgroundColor:
+                      theme.palette.mode === "light"
+                        ? "#ffffff"
+                        : theme.palette.common.white,
+                    transition:
+                      "width 0.4s ease, border-radius 0.4s ease, opacity 0.4s ease",
+                    zIndex: 0, // Places the overlay behind the text
+                    borderRadius: "50% / 50%", // Start with curves on both top and bottom
+                    opacity: 0, // Start with 0 opacity
+                  },
+
+                  "&:hover::before": {
+                    width: "100%",
+                    borderRadius: "0", // Straighten out edges as it expands
+                    opacity: 1, // Fade in to full opacity on hover
+                  },
+
+                  "&:hover span": {
+                    color: theme.palette.secondary.main,
+                  },
                 })}
               >
-                در باره میفا
+                <span style={{ position: "relative", zIndex: 2 }}>
+                  در باره میفا
+                </span>
               </Button>
             </div>
           </div>
