@@ -96,7 +96,9 @@ const OurServices = () => {
               },
               "&:hover": {
                 marginTop: "-200px",
-                background: `radial-gradient(circle, ${theme.palette.secondary.main}80 0%, transparent 90%,transparent 70%)`,
+                background:
+                  theme.palette.mode === "dark" &&
+                  `radial-gradient(circle, ${theme.palette.secondary.main}80 0%, transparent 90%,transparent 70%)`,
               },
               "&:hover::after": {
                 display: "block",
@@ -115,7 +117,7 @@ const OurServices = () => {
               },
             }}
           >
-            <div className="border w-full bg-service-item-gradient lg:col-span-1 col-span-2 p-[18px] h-full z-10 relative">
+            <div className="border w-full bg-service-item-gradient shadow-md lg:col-span-1 col-span-2 p-[18px] h-full z-10 relative">
               <Image
                 src={`/${item.id}.png`}
                 alt="image"

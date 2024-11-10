@@ -15,7 +15,7 @@ import {
 export default function Home() {
   const sectionRefs = [useRef(null), useRef(null), useRef(null)];
   return (
-    <div>
+    <div className="">
       <Header sectionRefs={sectionRefs} />
       <Hero sectionRef={sectionRefs[0]} />
       <AboutMifa sectionRef={sectionRefs[1]} />

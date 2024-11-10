@@ -2,6 +2,7 @@
 import { Button, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
 import React from "react";
+import CountUp from "react-countup";
 
 const stats = [
   {
@@ -113,7 +114,7 @@ const OurBeginning = () => {
                       fontWeight: "bold",
                     })}
                   >
-                    {stat.count}
+                    <CountUp end={stat.count} duration={5} enableScrollSpy />
                     <span className="text-secondary">+</span>
                   </Typography>
                   <Typography

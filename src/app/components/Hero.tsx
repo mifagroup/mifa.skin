@@ -45,7 +45,10 @@ const Hero = ({
                   md: "50px",
                   xs: "48px",
                 },
-                paddingTop: "100px",
+                paddingTop: {
+                  lg: "40px",
+                  xs: "100px",
+                },
               })}
             >
               از ایده تا پدیده
@@ -58,11 +61,11 @@ const Hero = ({
                 },
 
                 fontWeight: {
-                  lg: "100",
+                  lg: "300",
                   xs: "300",
                 },
                 color: theme.palette.common.white,
-                textAlign: "justify",
+                whiteSpace: "nowrap",
               })}
             >
               اینجا نقطه آغاز ماست… <br />
