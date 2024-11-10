@@ -97,8 +97,9 @@ const OurServices = () => {
               "&:hover": {
                 marginTop: "-200px",
                 background:
-                  theme.palette.mode === "dark" &&
-                  `radial-gradient(circle, ${theme.palette.secondary.main}80 0%, transparent 90%,transparent 70%)`,
+                  theme.palette.mode === "dark"
+                    ? `radial-gradient(circle, ${theme.palette.secondary.main}80 0%, transparent 90%,transparent 70%)`
+                    : null,
               },
               "&:hover::after": {
                 display: "block",
