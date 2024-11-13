@@ -23,7 +23,7 @@ const config: Config = {
         "hero-linear-gradient":
           "linear-gradient(0deg, #141E45 10%, #141E4510 100%)",
         "hero-linear-gradient-light":
-          "linear-gradient(180deg, #ffffff00 30%,#ffffff 100%)",
+          "linear-gradient(180deg, #ffffff00 30%,#ffffff 90%),linear-gradient(180deg, #ffffff00 30%,#ffffff 100%)",
         "about-linear-gradient":
           "linear-gradient(to bottom, #141E4501 35%,#141E45 75%)",
         "about-linear-gradient-res":

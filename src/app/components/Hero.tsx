@@ -14,7 +14,7 @@ const Hero = ({
     <div
       id="heroSection"
       ref={sectionRef}
-      className="bg-hero-background-image md:bg-center bg-right-bottom md:bg-cover sm:bg-[900px,600px] bg-no-repeat md:mt-[-79px] mt-[-200px] flex flex-col lg:pt-[260px] md:pt-[120px] pt-[150px]"
+      className={`bg-hero-background-image md:bg-center bg-right-bottom md:bg-cover sm:bg-[900px,600px] bg-no-repeat md:mt-[-82px] mt-[-200px] flex flex-col lg:pt-[260px] md:pt-[120px] pt-[150px]`}
     >
       <div
         className={`lg:h-[1089px] md:h-[900px] h-[700px] w-full absolute top-0 z-30 ${
@@ -223,13 +223,7 @@ const Hero = ({
           </div>
         </div>
       </div>
-      <Image
-        src={"/mifa-slide-roban.png"}
-        alt=""
-        width={1440}
-        height={120}
-        className="w-[100%] lg:mt-[270px] mt-[-40px] z-40"
-      />
+      <div className="w-[100%] lg:mt-[390px] mt-[-40px] z-40" />
     </div>
   );
 };
