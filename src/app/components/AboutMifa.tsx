@@ -14,18 +14,18 @@ const AboutMifa = ({
     <div
       id="aboutSection"
       ref={sectionRef}
-      className="bg-about-mifa 2xl:bg-cover lg:bg-bottom bg-[0px_150px] bg-no-repeat lg:h-[950px] md:h-[620px] h-[700px] flex justify-between items-center relative lg:pt-0 md:pt-[190px] pt-[100px]"
+      className="bg-about-mifa 2xl:bg-cover lg:bg-bottom bg-[0px_150px] bg-no-repeat min-h-screen flex justify-center items-center relative"
     >
       <div
-        className={`lg:h-[950px] md:h-[750px] h-[700px] w-full absolute top-0 z-30 ${
+        className={`h-full w-full absolute top-0 z-30 ${
           theme.palette.mode === "dark"
             ? "lg:bg-about-linear-gradient md:bg-about-linear-gradient-res bg-about-linear-gradient-res-2"
             : "lg:bg-about-linear-gradient-light md:bg-about-linear-gradient-res-light bg-about-linear-gradient-res-2-light"
         }`}
       ></div>
       <div className="container">
-        <div className="flex lg:flex-row flex-col justify-between">
-          <div className="flex flex-col lg:gap-y-8 gap-y-2 z-50 max-w-[750px] lg:pt-16 lg:px-0 px-2">
+        <div className="flex lg:flex-row flex-col justify-between items-center">
+          <div className="flex flex-col lg:gap-y-8 gap-y-2 z-50 max-w-[750px] lg:px-0 px-2">
             <div className="flex justify-between items-center gap-x-4">
               <Image src={"/star.png"} alt="star" height={39} width={39} />
               <div className="h-[1px] flex-1 bg-white opacity-50"></div>

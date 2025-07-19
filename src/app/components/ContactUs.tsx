@@ -12,12 +12,13 @@ const ContactUs = ({
 
   return (
     <div
-      className="container lg:mb-[380px] mb-[100px] lg:px-0 px-2"
+      className="min-h-screen flex items-center justify-center"
       ref={sectionRef}
       id="contactSection"
     >
+      <div className="container lg:px-0 px-2">
       <div className="grid grid-cols-2">
-        <div className="lg:col-span-1 col-span-2 flex flex-col mt-20 relative">
+        <div className="lg:col-span-1 col-span-2 flex flex-col relative">
           <div
             className={`absolute w-full lg:h-[150px] bottom-0 z-50 ${
               theme.palette.mode === "dark" &&
@@ -216,6 +217,7 @@ const ContactUs = ({
 
           <span style={{ position: "relative", zIndex: 2 }}>ارسال</span>
         </Button>
+      </div>
       </div>
     </div>
   );

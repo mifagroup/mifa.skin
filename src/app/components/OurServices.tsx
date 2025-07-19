@@ -30,7 +30,8 @@ const OurServices = () => {
   const theme = useTheme();
 
   return (
-    <div className="lg:pb-[370px] pb-[100px] container flex flex-col lg:px-0 px-2">
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="container flex flex-col lg:px-0 px-2">
       <div className="flex justify-between items-center gap-x-4">
         <Typography
           sx={(theme) => ({
@@ -249,6 +250,7 @@ const OurServices = () => {
             </Button>
           </Box>
         ))}
+      </div>
       </div>
     </div>
   );

@@ -2,6 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Enhanced smooth scroll animations */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Full page scroll container styles */
+.full-page-container {
+  height: 100vh;
+  overflow: hidden;
+  scroll-snap-type: y mandatory;
+}
+
+/* Individual section styles for full page scroll */
+.full-page-section {
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Smooth transitions for all elements during scroll */
+.full-page-section * {
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Section animation effects */
+.full-page-section {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+/* Loop transition effects */
+.full-page-container.looping .full-page-section {
+  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Disable text selection during scroll animations */
+.full-page-container.scrolling {
+  user-select: none;
+}
+
+/* Smooth cursor transitions */
+.full-page-container {
+  cursor: default;
+}
+
+.full-page-container:hover {
+  cursor: pointer;
+}
+
 .container {
   @apply mx-auto;
 }

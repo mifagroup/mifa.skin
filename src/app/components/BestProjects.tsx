@@ -17,7 +17,7 @@ const BestProjects = () => {
   const theme = useTheme();
 
   return (
-    <div className="lg:pb-[370px] pb-[130px] lg:pt-0 md:pt-[200px] pt-[0px] lg:px-0 px-2">
+    <div className="min-h-screen flex items-center justify-center lg:px-0 px-2">
       <div className="flex container flex-col lg:gap-y-16 gap-y-7">
         <div className="flex justify-between items-center gap-x-4">
           <Image

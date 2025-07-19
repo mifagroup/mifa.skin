@@ -24,7 +24,7 @@ const OurBeginning = () => {
 
   return (
     <div
-      className={`lg:pb-[300px] pb-[50px] bg-our-beginning-cloud bg-no-repeat bg-[center_top_3rem] bg-cover ${
+      className={`min-h-screen flex items-center justify-center bg-our-beginning-cloud bg-no-repeat bg-[center_top_3rem] bg-cover ${
         theme.palette.mode === "light" && "bg-our-beginning-cloud-light"
       }`}
     >
